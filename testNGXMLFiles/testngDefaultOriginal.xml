@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/DemoQa">
+        <classes>
+            <class name="DemoQAMainCodeFiles.AddToCartTest">
+                <methods>
+                    <include name="AddToCartItems"/>
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.EndToEndEcomFlowTest">
+                <methods>
+                    <include name="test09"/>
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.FormDropDownTest">
+                <methods>
+                    <include name="staticDropdown"/>
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.LimitingDriverScopeTest">
+                <methods>
+                    <include name="DriverScope"/>
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.LoginLogoutDataProvider1Test">
+                <methods>
+                    <include name="testLoginValidCred"/>
+                    <include name="testLoginINValidCred01"/>
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.StreamsTableSortTest">
+                <methods>
+                    <include name="streamSortWebTable"/>
+                    <include name="pagination"/>
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.ValidateBrokenLinksTest">
+                <methods>
+                    <include name="brokenLinkValidate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="DemoQACommonFiles.Listners"/>
+    </listeners>
+    <groups>
+        <run>
+            <include name="POM"/>
+        </run>
+    </groups>
+
+
+    <test preserve-order="true" name="Learning_RawTestSuite">
+
+        <classes>
+            <class name="DemoQAMainCodeFiles.AddToCartTest">
+                <methods>
+
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.EndToEndEcomFlowTest">
+                <methods>
+
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.FormDropDownTest">
+                <methods>
+
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.LimitingDriverScopeTest">
+                <methods>
+
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.LoginLogoutDataProvider1Test">
+                <methods>
+
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.StreamsTableSortTest">
+                <methods>
+
+                </methods>
+            </class>
+            <class name="DemoQAMainCodeFiles.ValidateBrokenLinksTest">
+                <methods>
+                    <include name="brokenLinkValidate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="POM_Test_suite">
+        <classes>
+            <class name="POMVerifyUserCanPlaceOrderSuccessfullyTest">
+            </class>
+            <class name="POMErrorValidationTest">
+            </class>
+        </classes>
+    </test>
+</suite>
