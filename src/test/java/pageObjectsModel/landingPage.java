@@ -14,13 +14,13 @@ public class landingPage extends POMBaseTestClass {
         PageFactory.initElements(driver,this);
     }
     @FindBy(id = "userEmail")
-    WebElement userEmail;
+    private WebElement userEmail;
     @FindBy(id ="userPassword")
-    WebElement userPassword;
+    private WebElement userPassword;
     @FindBy(id ="login")
-    WebElement submit;
+    private WebElement submit;
     @FindBy(css="[class*='flyInOut']")
-    public WebElement errorMessage;
+    private WebElement errorMessage;
 
 
 

@@ -55,6 +55,9 @@
             </class>
             <class name="POMErrorValidationTest">
             </class>
+            <class name="LoginLogoutDataProviderExcelTest">
+            </class>
+
         </classes>
     </test>
 </suite>

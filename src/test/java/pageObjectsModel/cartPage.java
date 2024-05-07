@@ -16,10 +16,10 @@ public class cartPage extends POMBaseTestClass {
     }
 
     @FindBy(css = ".infoWrap button:nth-of-type(1)")
-    WebElement buyButton;
+    private WebElement buyButton;
 
     @FindBy(css = "[class='cartSection'] h3")
-    List<WebElement> cartItems;
+    private List<WebElement> cartItems;
 
     public List<WebElement> getCartItems() {
         waitForWebelementToAppear(buyButton);

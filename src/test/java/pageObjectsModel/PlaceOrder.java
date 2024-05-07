@@ -16,13 +16,13 @@ public class PlaceOrder extends POMBaseTestClass {
         PageFactory.initElements(driver,this);
     }
     @FindBy(css = "[placeholder='Select Country']")
-    WebElement countryInput;
+    private WebElement countryInput;
     @FindBy(css = ".ta-results")
-    WebElement resultBox;
+    private WebElement resultBox;
     @FindBy(xpath = "(//button[contains(@class,'ta-item')])[2]")
     private WebElement selectCountry;
     @FindBy(css = ".action__submit")
-    public WebElement submit;
+    private WebElement submit;
 
     public void enterCountry(String countryName){
         Actions actions = new Actions(driver);

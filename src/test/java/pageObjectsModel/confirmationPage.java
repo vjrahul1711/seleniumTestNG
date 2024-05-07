@@ -12,7 +12,7 @@ public class confirmationPage extends POMBaseTestClass {
     }
 
     @FindBy(css = ".hero-primary")
-    WebElement ThankyouNote;
+    private WebElement ThankyouNote;
     public String getThankyouMsg(){
         waitForWebelementToAppear(ThankyouNote);
         String confirmationMsg= ThankyouNote.getText();

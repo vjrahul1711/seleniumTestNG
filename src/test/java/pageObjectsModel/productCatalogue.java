@@ -15,15 +15,15 @@ public class productCatalogue extends POMBaseTestClass {
         PageFactory.initElements(driver, this);
     }
     @FindBy(css = ".card-body")
-    List<WebElement> products;
+    private List<WebElement> products;
     @FindBy(css = "#toast-container")
-    public WebElement toastMessage;
+    private WebElement toastMessage;
     @FindBy(css = "[routerlink*='cart']")
-    WebElement cartele;
+    private WebElement cartele;
     @FindBy(css = "card")
-    public WebElement prodcard;
+    private WebElement prodcard;
     @FindBy(css = ".ng-animating")
-    WebElement spinner;
+    private WebElement spinner;
 
     By productsBy = By.cssSelector(".card-body");
     By addToCartBy = By.cssSelector(".card-body button:nth-of-type(2)");
