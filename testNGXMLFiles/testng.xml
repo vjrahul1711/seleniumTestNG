@@ -57,7 +57,13 @@
             </class>
             <class name="LoginLogoutDataProviderExcelTest">
             </class>
+        </classes>
+    </test>
+    <test name="API_Test_Suite">
+        <classes>
+            <class name="DemoQAMainCodeFiles.APIAuthenticationAccessTokenTest">
 
+            </class>
         </classes>
     </test>
 </suite>
