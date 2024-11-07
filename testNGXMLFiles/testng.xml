@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="DemoQACommonFiles.Listners"/>
+        <listener class-name="PassionGaming.utils.Listeners"/>
     </listeners>
-    <test preserve-order="true" name="Learning_RawTestSuite">
+    <test preserve-order="true" name="Learning_RawTestSuite" parallel="methods" thread-count="1">
         <classes>
             <class name="DemoQAMainCodeFiles.AddToCartTest">
                 <methods>
@@ -27,8 +27,8 @@
                 </methods>
             </class>
             <class name="DemoQAMainCodeFiles.LoginLogoutDataProvider1Test">
-                <methods>
-                    <include name="testLoginValidCred"/>
+                <methods >
+                    <include name="testLoginValidCred" />
                 </methods>
             </class>
             <class name="DemoQAMainCodeFiles.LoginLogoutHashMapDataProviderTest">
@@ -47,6 +47,11 @@
                     <include name="brokenLinkValidate"/>
                 </methods>
             </class>
+            <class name="DemoQACommonFiles.JsonToJava">
+                <methods>
+                    <include name="testCaseDBCOnnection"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <test name="POM_Test_suite">
@@ -56,13 +61,15 @@
             <class name="POMErrorValidationTest">
             </class>
             <class name="LoginLogoutDataProviderExcelTest">
+                <methods>
+                    <exclude name="testLoginValidCred"/>
+                </methods>
             </class>
         </classes>
     </test>
     <test name="API_Test_Suite">
         <classes>
             <class name="DemoQAMainCodeFiles.APIAuthenticationAccessTokenTest">
-
             </class>
         </classes>
     </test>

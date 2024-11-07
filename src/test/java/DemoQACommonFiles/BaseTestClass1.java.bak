@@ -1,20 +1,12 @@
 package DemoQACommonFiles;
 
-
-import DemoQAMainCodeFiles.AddToCartTest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -22,20 +14,16 @@ import org.testng.annotations.BeforeMethod;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
 
 
-public class BaseTestClass {
-    private WebDriver driver = null;
+public class BaseTestClass1 {
+    public WebDriver driver = null;
    // WebDriverWait exWait;
     //String BrowserName = "firefox";
-    //Getter
 
+    //Getter
     public WebDriver getDriver() {
         return driver;
     }
@@ -45,19 +33,7 @@ public class BaseTestClass {
         this.driver = driver;
     }
 
-//For launching the test on remote or docker setup.
-//    public void BrowserLaunch(String testUrl) throws URISyntaxException, MalformedURLException {
-//        String url="http://localhost:4444/wd/hub";
-//        //URL  = new URI(url).toURL();
-//        URL gridUrl = new URI(url).toURL();
-//        ChromeOptions options = new ChromeOptions();
-//        setDriver(new RemoteWebDriver(gridUrl, options));
-//        getDriver().get(testUrl);
-//        getDriver().manage().window().maximize();
-//
-//    }
 
-//For using the test on local machine
     public void BrowserLaunch(String testUrl) throws IOException {
         //GETTING BROWSER NAME FROM PROPERTY FILE
         Properties prop = new Properties();
@@ -82,16 +58,14 @@ public class BaseTestClass {
         getDriver().get(testUrl);
         getDriver().manage().window().maximize();
     }
-
     //@BeforeMethod(alwaysRun = true)
-    public void LaunchApp() throws IOException, URISyntaxException {
-
+    public void LaunchApp() throws IOException {
         BrowserLaunch("https://rahulshettyacademy.com/client");
     }
 
-    @AfterMethod(alwaysRun = true)
+    //@AfterMethod(alwaysRun = true)
     public void TearDown(){
-        getDriver().quit();
+        driver.close();
     }
     public void waitForWebelementToAppear(WebElement element) {
         WebDriverWait exWait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
@@ -112,9 +86,9 @@ public class BaseTestClass {
         //js.executeScript("arguments[0].scrollIntoView()",element);
         js.executeScript("arguments[0].click()", element);
     }
-    
+
     public String Capture(WebDriver driver) throws IOException{
-        TakesScreenshot camera = (TakesScreenshot)driver;
+        TakesScreenshot camera = (TakesScreenshot) driver;
         File saveFile = camera.getScreenshotAs(OutputType.FILE);
         String path = String.format("%s%s-%s.png", configuration.SCREENSHOTS_DIR, "dashboard", System.currentTimeMillis());
         boolean fileSaved= saveFile.renameTo(new File(path));
@@ -122,9 +96,6 @@ public class BaseTestClass {
         System.out.println(Saved);
         return path;
     }
-
-    public static Logger logger = LogManager.getLogger(BaseTestClass.class.getName());
-
 
 
 }

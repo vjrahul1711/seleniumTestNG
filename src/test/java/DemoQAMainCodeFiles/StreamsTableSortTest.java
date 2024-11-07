@@ -1,20 +1,20 @@
 package DemoQAMainCodeFiles;
 
-import DemoQACommonFiles.BaseTestClass1;
-import DemoQACommonFiles.POMBaseTestClass;
+import DemoQACommonFiles.BaseTestClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamsTableSortTest extends BaseTestClass1 {
+public class StreamsTableSortTest extends BaseTestClass {
 
     @Test
-    public void streamSortWebTable() throws IOException {
+    public void streamSortWebTable() throws IOException, URISyntaxException {
         BrowserLaunch("https://rahulshettyacademy.com/seleniumPractise/#/offers");
         getDriver().findElement(By.cssSelector("th>span")).click();
         List<WebElement> elementls = getDriver().findElements(By.xpath("//tbody/tr/td[1]"));
@@ -22,11 +22,11 @@ public class StreamsTableSortTest extends BaseTestClass1 {
         List<String> newList = originalList.stream().sorted().toList();
         Assert.assertTrue(originalList.equals(newList));
         System.out.println("AAAA");
-        getDriver().quit();
+        //getDriver().quit();
     }
 
     @Test
-    public void pagination() throws IOException {
+    public void pagination() throws IOException, URISyntaxException {
         BrowserLaunch("https://rahulshettyacademy.com/seleniumPractise/#/offers");
         List<String> priceList;
         do {
@@ -40,7 +40,7 @@ public class StreamsTableSortTest extends BaseTestClass1 {
                 getDriver().findElement(By.cssSelector("a[aria-label='Next']")).click();
             }
         } while (priceList.isEmpty());
-        getDriver().quit();
+        //getDriver().quit();
     }
     private String veggiePrice(WebElement s) {
         return s.findElement(By.xpath("following-sibling::td[1]")).getText();

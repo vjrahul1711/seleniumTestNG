@@ -1,26 +1,26 @@
 package DemoQAMainCodeFiles;
 
-import DemoQACommonFiles.BaseTestClass1;
+import DemoQACommonFiles.BaseTestClass;
 import DemoQACommonFiles.configuration;
 
-import DemoQACommonFiles.POMBaseTestClass;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Iterator;
 import java.util.Set;
 //import org.apache.commons.io.FileUtils;
 
 
-public class LimitingDriverScopeTest extends BaseTestClass1 {
+public class LimitingDriverScopeTest extends BaseTestClass {
 
    // LimitingDriverScopeTest(){
       //  setDriver(new ChromeDriver());
     //}
     @Test
 
-    public void DriverScope() throws IOException {
+    public void DriverScope() throws IOException, URISyntaxException {
         BrowserLaunch(configuration.TEST_URL_Automation_Practice);
         WebElement footer =getDriver().findElement(By.xpath("//div[@id='gf-BIG']"));
         WebElement firstColumn = footer.findElement(By.xpath("//tbody/tr/td/ul"));
@@ -35,7 +35,7 @@ public class LimitingDriverScopeTest extends BaseTestClass1 {
             System.out.println(getDriver().getTitle());
 
         }
-        getDriver().quit();
+        //getDriver().quit();
 
     }
 

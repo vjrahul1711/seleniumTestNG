@@ -1,6 +1,6 @@
 package pojo;
 
-public class customerDetailsPojo {
+public class customerDetailsReadValuePojo {
     private String CourseName;
     private String PurchasedDate;
     private int Amount;

@@ -1,4 +1,4 @@
-package DemoQACommonFiles;
+package PassionGaming.utils;
 
 
 import org.testng.IRetryAnalyzer;

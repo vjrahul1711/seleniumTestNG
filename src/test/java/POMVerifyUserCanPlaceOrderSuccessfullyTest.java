@@ -1,21 +1,20 @@
-import DemoQACommonFiles.POMBaseTestClass;
-import DemoQACommonFiles.Form1data;
-import DemoQACommonFiles.Retry;
-import DemoQACommonFiles.configuration;
+import DemoQACommonFiles.*;
+import PassionGaming.utils.Retry;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjectsModel.*;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
-public class POMVerifyUserCanPlaceOrderSuccessfullyTest extends POMBaseTestClass {
+public class POMVerifyUserCanPlaceOrderSuccessfullyTest extends BaseTestClass {
 
 
     @Test(groups = {"POM"},retryAnalyzer = Retry.class)
     //@Test(groups ={"POM"})
-    public void TestSubmitOrder() throws IOException {
+    public void TestSubmitOrder() throws IOException, URISyntaxException {
 
-        //BrowserLaunch("https://rahulshettyacademy.com/client");
+        BrowserLaunch("https://rahulshettyacademy.com/client");
 
         //LOGIN INTO APP
         landingPage landingpage = new landingPage(getDriver());

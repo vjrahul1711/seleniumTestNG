@@ -1,0 +1,4 @@
+[ERROR] 2024-10-25 01:07:57,709 DemoQACommonFiles.BaseTestClass:21 - Inside first test
+[DEBUG] 2024-10-25 01:07:57,710 DemoQACommonFiles.BaseTestClass:22 - debug msg
+[WARN ] 2024-10-25 01:07:57,711 DemoQACommonFiles.BaseTestClass:23 - warn msg
+[INFO ] 2024-10-25 01:08:20,531 DemoQACommonFiles.BaseTestClass:28 - browser launched.

@@ -1,6 +1,6 @@
 package DemoQAMainCodeFiles;
 
-import DemoQACommonFiles.BaseTestClass1;
+import DemoQACommonFiles.BaseTestClass;
 import DemoQACommonFiles.configuration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,15 +10,16 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.HashMap;
 
 
-public class LoginLogoutHashMapDataProviderTest extends BaseTestClass1 {
+public class LoginLogoutHashMapDataProviderTest extends BaseTestClass {
 
     @Test(dataProvider = "getData")
     // With valid User and valid password
-    public void testLoginValidCred(HashMap<String,String>input) throws IOException {
+    public void testLoginValidCred(HashMap<String,String>input) throws IOException, URISyntaxException {
         //Method for launching the browser
         BrowserLaunch(configuration.TEST_URL_DEMOQA);
 
@@ -46,7 +47,7 @@ public class LoginLogoutHashMapDataProviderTest extends BaseTestClass1 {
             String invalidMsg = getDriver().findElement(By.id("name")).getText();
             Assert.assertEquals(invalidMsg, configuration.TEST_MSG_DEMOQA_Invalid, "invalid cred");
         }
-        getDriver().quit();
+        //getDriver().quit();
     }
 
 //    @DataProvider

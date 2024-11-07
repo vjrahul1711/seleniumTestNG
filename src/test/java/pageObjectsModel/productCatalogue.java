@@ -1,4 +1,4 @@
-package PassionGaming.pages;
+package pageObjectsModel;
 
 import DemoQACommonFiles.BaseTestClass;
 import org.openqa.selenium.By;

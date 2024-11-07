@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <listeners>
+    <!--<listeners>
         <listener class-name="DemoQACommonFiles.Listners"/>
     </listeners>
+    -->
     <groups>
         <run>
             <include name="POM"/>
         </run>
     </groups>
-
-
     <test preserve-order="true" name="Learning_RawTestSuite">
 
         <classes>

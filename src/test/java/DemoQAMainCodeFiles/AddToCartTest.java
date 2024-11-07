@@ -1,7 +1,6 @@
 package DemoQAMainCodeFiles;
 
-import DemoQACommonFiles.BaseTestClass1;
-import DemoQACommonFiles.POMBaseTestClass;
+import DemoQACommonFiles.BaseTestClass;
 import DemoQACommonFiles.configuration;
 
 import org.openqa.selenium.By;
@@ -9,14 +8,24 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
-public class AddToCartTest extends BaseTestClass1 {
+public class AddToCartTest extends BaseTestClass {
+
+
 
     @Test
-    public void AddToCartItems() throws IOException {
+    public void AddToCartItems() throws IOException, URISyntaxException {
+        logger.error("Inside first test");
+        logger.debug("debug msg");
+        logger.warn("warn msg");
+
+
+        System.out.println("--------"+logger);
         BrowserLaunch(configuration.TEST_URL_RahulShettyAcademy);
+        logger.info("browser launched.");
         String[] testItemsToCart = {"Cucumber", "Brocolli", "Beetroot", "Beans","Tomato"};
         int j = 0;
         List<WebElement> productNameList = getDriver().findElements(By.xpath("//h4[@class='product-name']"));
@@ -37,7 +46,7 @@ public class AddToCartTest extends BaseTestClass1 {
 
 
         }
-        getDriver().quit();
+        //getDriver().quit();
 
 
     }

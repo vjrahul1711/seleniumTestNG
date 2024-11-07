@@ -1,6 +1,6 @@
-import DemoQACommonFiles.BaseTestClass1;
+import DemoQACommonFiles.BaseTestClass;
 import DemoQACommonFiles.configuration;
-import DemoQACommonFiles.excelToDataObjectUtility;
+import PassionGaming.utils.excelToDataObjectUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -9,16 +9,17 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.Duration;
 
 
-public class LoginLogoutDataProviderExcelTest extends BaseTestClass1 {
+public class LoginLogoutDataProviderExcelTest extends BaseTestClass {
 
 
 
-    @Test(dataProvider ="testData")
+    @Test(dataProvider ="testData",groups = {"POM"})
     // With valid User and valid password
-    public void testLoginValidCred(String username, String password) throws IOException {
+    public void testLoginValidCred(String username, String password) throws IOException, NoSuchFieldException, URISyntaxException {
         //Method for launching the browser
         BrowserLaunch(configuration.TEST_URL_DEMOQA);
 
@@ -29,6 +30,7 @@ public class LoginLogoutDataProviderExcelTest extends BaseTestClass1 {
         executor.executeScript("arguments[0].click();", getDriver().findElement(By.xpath("//span[text()=\"Login\"]")));
 
         //Login
+
         getDriver().findElement(By.xpath("//input[@id=\"userName\"]")).sendKeys(username);
         getDriver().findElement(By.xpath("//input[@id=\"password\"]")).sendKeys(password);
         executor.executeScript("arguments[0].click();", getDriver().findElement(By.xpath("//button[@id=\"login\"]")));
@@ -48,7 +50,7 @@ public class LoginLogoutDataProviderExcelTest extends BaseTestClass1 {
             Assert.assertEquals(invalidMsg, configuration.TEST_MSG_DEMOQA_Invalid, "invalid cred");
             System.out.println("Login not completed");
         }
-        getDriver().quit();
+        //getDriver().quit();
     }
 
     @DataProvider

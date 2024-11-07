@@ -1,6 +1,7 @@
 package DemoQAMainCodeFiles;
 
-import DemoQACommonFiles.POMBaseTestClass;
+import DemoQACommonFiles.Form1data;
+import DemoQACommonFiles.configuration;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import java.time.Duration;
@@ -38,8 +39,8 @@ public class EndToEndEcomFlowTest {
         driver.manage().window().maximize();
         driver.get("https://rahulshettyacademy.com/client");
         //LandingPage landingPage = new LandingPage(driver);
-        driver.findElement(By.id("userEmail")).sendKeys("anshika@gmail.com");
-        driver.findElement(By.id("userPassword")).sendKeys("Iamking@000");
+        driver.findElement(By.id("userEmail")).sendKeys(Form1data.FORM_Email_Id);
+        driver.findElement(By.id("userPassword")).sendKeys(configuration.TEST_PWD_DEMOQA);
         driver.findElement(By.id("login")).click();
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".mb-3")));
@@ -59,7 +60,7 @@ public class EndToEndEcomFlowTest {
         Boolean match = 	cartProducts.stream().anyMatch(cartProduct-> cartProduct.getText().equalsIgnoreCase(productName));
         Assert.assertTrue(match);
         driver.findElement(By.cssSelector(".totalRow button")).click();
-
+//Action
         Actions a = new Actions(driver);
         a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "india").build().perform();
 
@@ -72,7 +73,7 @@ public class EndToEndEcomFlowTest {
 
         String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
         Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-        driver.close();
+        driver.quit();
 
 
     }

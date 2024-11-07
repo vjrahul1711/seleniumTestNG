@@ -2,6 +2,7 @@ package DemoQAMainCodeFiles;
 
 import DemoQACommonFiles.*;
 
+import PassionGaming.utils.Retry;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -10,14 +11,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.Duration;
 import static org.testng.Assert.assertEquals;
 
 
-public class FormDropDownTest extends BaseTestClass1 {
+
+public class FormDropDownTest extends BaseTestClass {
 
     @Test(retryAnalyzer = Retry.class)
-    public void staticDropdown() throws IOException {
+    public void staticDropdown() throws IOException, InterruptedException, URISyntaxException {
         BrowserLaunch(configuration.TEST_URL_DEMOQA);
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         JavascriptExecutor js3 = (JavascriptExecutor) getDriver();
@@ -37,7 +40,7 @@ public class FormDropDownTest extends BaseTestClass1 {
         WebElement element5 = getDriver().findElement(By.xpath("//input[@id='subjectsInput']"));
         wt.until(ExpectedConditions.elementToBeClickable(element5));
         js3.executeScript("arguments[0].scrollIntoView()", element5);
-        element5.sendKeys(Form1data.FORM_Subject_Input);
+        //element5.sendKeys(Form1data.FORM_Subject_Input);
         element5.sendKeys(Keys.ENTER);
         js3.executeScript("arguments[0].click()", getDriver().findElement(By.id("hobbies-checkbox-2")));
         getDriver().findElement(By.id("uploadPicture")).sendKeys(Form1data.FORM_Upload_image_path);
@@ -61,7 +64,7 @@ public class FormDropDownTest extends BaseTestClass1 {
         //Taking Screenshot
 
         LimitingDriverScopeTest s = new LimitingDriverScopeTest();
-        s.Capture(getDriver());
+       // s.Capture(getDriver());
 
         String completionMsgActual = wt.until(ExpectedConditions.visibilityOfElementLocated(By.id("example-modal-sizes-title-lg"))).getText();
 
@@ -69,7 +72,7 @@ public class FormDropDownTest extends BaseTestClass1 {
         assertEquals(completionMsgActual, Form1data.FORM_CompletionMsgActual);
         js3.executeScript("arguments[0].click()", getDriver().findElement(By.id("closeLargeModal")));
 
-        getDriver().quit();
+        //getDriver().quit();
     }
 
 
