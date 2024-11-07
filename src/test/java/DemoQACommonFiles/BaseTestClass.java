@@ -1,6 +1,6 @@
 package DemoQACommonFiles;
 
-
+import org.openqa.selenium.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,18 +11,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
 
-public class POMBaseTestClass {
+public class BaseTestClass {
     public WebDriver driver = null;
    // WebDriverWait exWait;
     //String BrowserName = "firefox";
-
 
     //Getter
     public WebDriver getDriver() {
@@ -46,7 +45,6 @@ public class POMBaseTestClass {
         }else {
             BrowserName= prop.getProperty("BrowserName");
         }
-
         //String BrowserName= prop.getProperty("BrowserName");
 
         if (BrowserName.contains("chrome")) {
@@ -60,12 +58,12 @@ public class POMBaseTestClass {
         getDriver().get(testUrl);
         getDriver().manage().window().maximize();
     }
-    @BeforeMethod(alwaysRun = true)
+    //@BeforeMethod(alwaysRun = true)
     public void LaunchApp() throws IOException {
         BrowserLaunch("https://rahulshettyacademy.com/client");
     }
 
-    @AfterMethod(alwaysRun = true)
+    //@AfterMethod(alwaysRun = true)
     public void TearDown(){
         driver.close();
     }
@@ -87,6 +85,16 @@ public class POMBaseTestClass {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //js.executeScript("arguments[0].scrollIntoView()",element);
         js.executeScript("arguments[0].click()", element);
+    }
+
+    public String Capture(WebDriver driver) throws IOException{
+        TakesScreenshot camera = (TakesScreenshot) driver;
+        File saveFile = camera.getScreenshotAs(OutputType.FILE);
+        String path = String.format("%s%s-%s.png", configuration.SCREENSHOTS_DIR, "dashboard", System.currentTimeMillis());
+        boolean fileSaved= saveFile.renameTo(new File(path));
+        String Saved = (fileSaved) ? "imgSaved" :"imgNotSaved";
+        System.out.println(Saved);
+        return path;
     }
 
 

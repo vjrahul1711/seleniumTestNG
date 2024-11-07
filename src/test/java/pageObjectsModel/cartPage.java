@@ -1,6 +1,6 @@
-package pageObjectsModel;
+package PassionGaming.pages;
 
-import DemoQACommonFiles.POMBaseTestClass;
+import DemoQACommonFiles.BaseTestClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class cartPage extends POMBaseTestClass {
+public class cartPage extends BaseTestClass {
 
     public cartPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

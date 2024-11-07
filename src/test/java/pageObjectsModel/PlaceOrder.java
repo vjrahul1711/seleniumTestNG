@@ -1,13 +1,13 @@
-package pageObjectsModel;
+package PassionGaming.pages;
 
-import DemoQACommonFiles.POMBaseTestClass;
+import DemoQACommonFiles.BaseTestClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PlaceOrder extends POMBaseTestClass {
+public class PlaceOrder extends BaseTestClass {
 
 
 

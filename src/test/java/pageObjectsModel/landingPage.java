@@ -1,13 +1,13 @@
-package pageObjectsModel;
+package PassionGaming.pages;
 
-import DemoQACommonFiles.POMBaseTestClass;
+import DemoQACommonFiles.BaseTestClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class landingPage extends POMBaseTestClass {
+public class landingPage extends BaseTestClass {
 
 
     public landingPage(WebDriver driver) {
